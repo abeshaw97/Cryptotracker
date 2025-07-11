@@ -49,7 +49,7 @@ onChange={(e)=> setSearch(e.target.value)}
 className="w-full p-2 mb-6 border rounded-md"
 />
 <div className="grid gap-4 sm:grid-cols-2">
-  
+
   {coins
     .filter((coin) =>
       coin.name.toLowerCase().includes(search.toLowerCase())
@@ -66,11 +66,12 @@ className="w-full p-2 mb-6 border rounded-md"
         <p
           className={
             coin.price_change_percentage_24h >= 0
-              ? 'text-green-600'
-              : 'text-red-600'
+              ? 'text-green-600 font-semibold'
+              : 'text-red-600 font-semibold'
           }
         >
-          {coin.price_change_percentage_24h.toFixed(2)}%
+          {coin.price_change_percentage_24h >=0 ?'🔺' :'🔻'}{''}
+          {coin.price_change_percentage_24h.toFixed(2)}
         </p>
       </div>
     ))}
